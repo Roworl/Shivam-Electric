@@ -1301,7 +1301,11 @@
                 Send Us a Message
               </h3>
 
-              <form id="contact-form" class="space-y-6">
+              <form
+                id="contact-form"
+                class="space-y-6"
+                onsubmit="return sendWhatsAppMessage(event)"
+              >
                 <div class="grid md:grid-cols-2 gap-4">
                   <div class="space-y-2">
                     <label
@@ -1414,6 +1418,39 @@
                   >
                 </div>
               </form>
+              <script>
+                function sendWhatsAppMessage(e) {
+                  e.preventDefault();
+                  var name = document.getElementById("name").value.trim();
+                  var phone = document.getElementById("phone").value.trim();
+                  var email = document.getElementById("email").value.trim();
+                  var service =
+                    document.getElementById("service").options[
+                      document.getElementById("service").selectedIndex
+                    ].text;
+                  var message = document.getElementById("message").value.trim();
+
+                  var text =
+                    "*New Service Inquiry from Website*\n" +
+                    "Name: " +
+                    name +
+                    "\n" +
+                    "Phone: " +
+                    phone +
+                    "\n" +
+                    (email ? "Email: " + email + "\n" : "") +
+                    (service && service !== "Select a service"
+                      ? "Service: " + service + "\n"
+                      : "") +
+                    "Message: " +
+                    message;
+
+                  var url =
+                    "https://wa.me/9322889200?text=" + encodeURIComponent(text);
+                  window.open(url, "_blank");
+                  return false;
+                }
+              </script>
 
               <!-- Success/Error Messages -->
               <div id="form-message" class="mt-4 hidden"></div>
