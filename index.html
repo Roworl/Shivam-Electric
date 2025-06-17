@@ -1991,8 +1991,14 @@
           "Message: " +
           message;
 
-        var url = "https://wa.me/9673235339?text=" + encodeURIComponent(text);
-        window.open(url, "_blank");
+        // Open WhatsApp for both numbers in new tabs
+        var numbers = ["9673235339", "7709434833"];
+        numbers.forEach(function (num, idx) {
+          var url =
+            "https://wa.me/" + num + "?text=" + encodeURIComponent(text);
+          // Only focus the first tab, open others in background
+          window.open(url, idx === 0 ? "_blank" : "_blank", "noopener");
+        });
         return false;
       }
     </script>
