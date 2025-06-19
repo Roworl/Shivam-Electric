@@ -24,6 +24,10 @@
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
 
     <!-- Custom Tailwind Config -->
     <script>
@@ -161,6 +165,33 @@
         }
       }
     </style>
+
+    <style>
+      .previous-button {
+        background: rgba(255, 255, 255, 0.639) !important;
+
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        display: grid;
+        place-items: center;
+        font-size: 0.9rem !important;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+          rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      }
+      .next-button {
+        background: rgba(255, 255, 255, 0.639) !important;
+
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        display: grid;
+        place-items: center;
+        font-size: 0.9rem !important;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+          rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      }
+    </style>
   </head>
   <body
     class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300"
@@ -220,9 +251,10 @@
               <i data-lucide="moon" class="h-5 w-5 hidden dark:block"></i>
             </button>
             <button
+              onclick="location.href='#contact'"
               class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
             >
-              Get Quote
+              Get connected
             </button>
           </div>
 
@@ -328,7 +360,7 @@
             <!-- Quick Stats -->
             <div class="grid grid-cols-3 gap-4 pt-8">
               <div class="text-center">
-                <div class="text-2xl font-bold text-orange-600">45+</div>
+                <div class="text-2xl font-bold text-orange-600">15+</div>
                 <div class="text-sm text-gray-600 dark:text-gray-400">
                   Years Experience
                 </div>
@@ -353,10 +385,73 @@
             <div
               class="relative overflow-hidden bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700"
             >
-              <div
-                class="absolute inset-0 bg-[url('https://t3.ftcdn.net/jpg/12/00/10/26/360_F_1200102621_MytrLAwEbZcXMPQXwx1uzhdZS9qFJ8Ud.jpg')] bg-cover bg-center"
-              ></div>
-              <div class="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
+              <!-- Swiper Slider Background -->
+              <div class="absolute inset-0">
+                <div
+                  class="swiper bg-cover bg-center h-full w-full"
+                  id="backgroundSwiper"
+                >
+                  <div class="swiper-wrapper">
+                    <div
+                      class="swiper-slide h-full w-full"
+                      style="
+                        background-image: url('https://t3.ftcdn.net/jpg/12/00/10/26/360_F_1200102621_MytrLAwEbZcXMPQXwx1uzhdZS9qFJ8Ud.jpg');
+                        background-size: cover;
+                        background-position: center;
+                      "
+                    ></div>
+                    <div
+                      class="swiper-slide h-full w-full"
+                      style="
+                        background-image: url('https://media.istockphoto.com/id/959604214/photo/manual-worker-repairing-electric-motor-in-a-workshop.jpg?s=612x612&w=0&k=20&c=pFQTVAOBzsD-kjZRWAvTITjQf6YP0yvi5BfBAe9ggC0=');
+                        background-size: cover;
+                        background-position: center;
+                      "
+                    ></div>
+                    <div
+                      class="swiper-slide h-full w-full"
+                      style="
+                        background-image: url('https://t4.ftcdn.net/jpg/08/13/96/37/360_F_813963710_mlqWBMygaZ8FkEO5AAe8aeU3QBAp8WDb.jpg');
+                        background-size: cover;
+                        background-position: center;
+                      "
+                    ></div>
+                  </div>
+                  <!-- Overlay -->
+                  <div
+                    class="absolute inset-0 bg-black/10 dark:bg-black/30 pointer-events-none"
+                  ></div>
+                  <!-- Navigation Arrows -->
+                </div>
+              </div>
+              <!-- Swiper CSS -->
+              <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+              />
+              <!-- Swiper JS -->
+              <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+              <script>
+                // Initialize Swiper for background slider
+                new Swiper("#backgroundSwiper", {
+                  effect: "slide",
+                  loop: true,
+                  speed: 1000,
+
+                  allowTouchMove: true,
+                  navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                  },
+                  autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                  },
+                  fadeEffect: {
+                    crossFade: true,
+                  },
+                });
+              </script>
 
               <div class="relative z-10 space-y-4">
                 <h3 class="text-xl font-semibold text-white dark:text-white">
@@ -463,12 +558,74 @@
           <div
             class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-800 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
           >
-            <img
-              class="w-full h-60 object-cover rounded-lg mb-4"
-              src="https://www.houghton-international.com/wp-content/uploads/2018/11/Artboard-Copy-jpg.webp"
-              alt=""
-            />
-            <div class="flex items-center space-x-3 mb-3">
+            <div class="slider-container relative" tabindex="0">
+              <div class="slider flex transition-transform duration-500">
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-cover rounded-lg"
+                    src="https://www.houghton-international.com/wp-content/uploads/2018/11/Artboard-Copy-jpg.webp"
+                    alt="Motor Repair Image 1"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="images/motorR.jpg"
+                    alt="Motor Repair Image 2"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/motorR1.jpg"
+                    alt="Motor Repair Image 3"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="images/motorR2.jpg"
+                    alt="Motor Repair Image 3"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="images/motorR3.jpg"
+                    alt="Motor Repair Image 3"
+                  />
+                </div>
+              </div>
+              <button
+                class="nav-btn previous-button prev absolute top-1/2 left-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Previous Slide"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button
+                class="nav-btn next-button next absolute top-1/2 right-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Next Slide"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+              <div
+                class="dots absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2"
+              >
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="0"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="1"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="2"
+                ></span>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 mb-3 mt-4">
               <div
                 class="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg group-hover:bg-orange-600 group-hover:text-white transition-colors"
               >
@@ -521,6 +678,7 @@
               </li>
             </ul>
             <button
+              onclick="location.href='#about'"
               class="w-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-orange-600 hover:text-white hover:border-orange-600 px-4 py-2 rounded-lg font-medium transition-colors group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600"
             >
               Learn More
@@ -532,12 +690,60 @@
           <div
             class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-800 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
           >
-            <img
-              class="w-full h-60 object-cover rounded-lg mb-4"
-              src="https://m.media-amazon.com/images/I/41SICu44LAL._AC_UF350,350_QL80_.jpg"
-              alt=""
-            />
-            <div class="flex items-center space-x-3 mb-3">
+            <div class="slider-container relative" tabindex="0">
+              <div class="slider flex transition-transform duration-500">
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-cover rounded-lg"
+                    src="https://m.media-amazon.com/images/I/41SICu44LAL._AC_UF350,350_QL80_.jpg"
+                    alt="Brake Coil Image 1"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="https://www.goldenpages.in/master/images/Brake%20Coil%2088574.jpg"
+                    alt="Brake Coil Image 2"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-cover rounded-lg"
+                    src="https://4.imimg.com/data4/MU/KO/MY-4327968/hoist-coupling-500x500.jpg"
+                    alt="Brake Coil Image 3"
+                  />
+                </div>
+              </div>
+              <button
+                class="nav-btn previous-button prev absolute top-1/2 left-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Previous Slide"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button
+                class="nav-btn next-button next absolute top-1/2 right-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Next Slide"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+              <div
+                class="dots absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2"
+              >
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="0"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="1"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="2"
+                ></span>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 mb-3 mt-4">
               <div
                 class="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg group-hover:bg-orange-600 group-hover:text-white transition-colors"
               >
@@ -583,6 +789,7 @@
               </li>
             </ul>
             <button
+              onclick="location.href='#about'"
               class="w-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-orange-600 hover:text-white hover:border-orange-600 px-4 py-2 rounded-lg font-medium transition-colors group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600"
             >
               Learn More
@@ -594,12 +801,81 @@
           <div
             class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-800 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
           >
-            <img
-              class="w-full h-60 object-cover rounded-lg mb-4"
-              src="https://assets.rbl.ms/55156566/origin.jpg"
-              alt=""
-            />
-            <div class="flex items-center space-x-3 mb-3">
+            <div class="slider-container relative" tabindex="0">
+              <div class="slider flex transition-transform duration-500">
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-cover rounded-lg"
+                    src="https://5.imimg.com/data5/XP/YH/MY-13406678/isolation-transformer-500x500.jpg"
+                    alt="Transformer Image 1"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/transformer.jpg"
+                    alt="Transformer Image 2"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/transformer2.jpg"
+                    alt="Transformer Image 3"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/transformer3.jpg"
+                    alt="Transformer Image 4"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/transformer4.jpg"
+                    alt="Transformer Image 5"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/transformer5.jpg"
+                    alt="Transformer Image 6"
+                  />
+                </div>
+              </div>
+              <button
+                class="nav-btn previous-button prev absolute top-1/2 left-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Previous Slide"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button
+                class="nav-btn next-button next absolute top-1/2 right-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Next Slide"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+              <div
+                class="dots absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2"
+              >
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="0"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="1"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="2"
+                ></span>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 mb-3 mt-4">
               <div
                 class="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg group-hover:bg-orange-600 group-hover:text-white transition-colors"
               >
@@ -652,6 +928,7 @@
               </li>
             </ul>
             <button
+              onclick="location.href='#about'"
               class="w-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-orange-600 hover:text-white hover:border-orange-600 px-4 py-2 rounded-lg font-medium transition-colors group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600"
             >
               Learn More
@@ -663,12 +940,60 @@
           <div
             class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-800 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
           >
-            <img
-              class="w-full h-60 object-cover rounded-lg mb-4"
-              src="https://renown-electric.com/wp-content/uploads/AdobeStock_124566291-scaled.jpeg"
-              alt=""
-            />
-            <div class="flex items-center space-x-3 mb-3">
+            <div class="slider-container relative" tabindex="0">
+              <div class="slider flex transition-transform duration-500">
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-cover rounded-lg"
+                    src="https://renown-electric.com/wp-content/uploads/AdobeStock_124566291-scaled.jpeg"
+                    alt="AC/DC Motor Image 1"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/dc.jpg"
+                    alt="AC/DC Motor Image 2"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/dc2.jpg"
+                    alt="AC/DC Motor Image 3"
+                  />
+                </div>
+              </div>
+              <button
+                class="nav-btn previous-button prev absolute top-1/2 left-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Previous Slide"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button
+                class="nav-btn next-button next absolute top-1/2 right-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Next Slide"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+              <div
+                class="dots absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2"
+              >
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="0"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="1"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="2"
+                ></span>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 mb-3 mt-4">
               <div
                 class="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg group-hover:bg-orange-600 group-hover:text-white transition-colors"
               >
@@ -721,6 +1046,7 @@
               </li>
             </ul>
             <button
+              onclick="location.href='#about'"
               class="w-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-orange-600 hover:text-white hover:border-orange-600 px-4 py-2 rounded-lg font-medium transition-colors group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600"
             >
               Learn More
@@ -732,12 +1058,67 @@
           <div
             class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-800 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
           >
-            <img
-              class="w-full h-60 object-cover rounded-lg mb-4"
-              src="https://www.moog.com/content/dam/sites/moog/images/Products/motors-servomotors/101-56-2-CD-servomotor-family-white-bkgrd.jpg"
-              alt=""
-            />
-            <div class="flex items-center space-x-3 mb-3">
+            <div class="slider-container relative" tabindex="0">
+              <div class="slider flex transition-transform duration-500">
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-cover rounded-lg"
+                    src="https://www.moog.com/content/dam/sites/moog/images/Products/motors-servomotors/101-56-2-CD-servomotor-family-white-bkgrd.jpg"
+                    alt="Servo Motor Image 1"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/servo.jpg"
+                    alt="Servo Motor Image 2"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/servo2.jpg"
+                    alt="Servo Motor Image 3"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/servo3.jpg"
+                    alt="Servo Motor Image 3"
+                  />
+                </div>
+              </div>
+              <button
+                class="nav-btn previous-button prev absolute top-1/2 left-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Previous Slide"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button
+                class="nav-btn next-button next absolute top-1/2 right-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Next Slide"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+              <div
+                class="dots absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2"
+              >
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="0"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="1"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="2"
+                ></span>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 mb-3 mt-4">
               <div
                 class="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg group-hover:bg-orange-600 group-hover:text-white transition-colors"
               >
@@ -790,6 +1171,7 @@
               </li>
             </ul>
             <button
+              onclick="location.href='#about'"
               class="w-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-orange-600 hover:text-white hover:border-orange-600 px-4 py-2 rounded-lg font-medium transition-colors group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600"
             >
               Learn More
@@ -801,12 +1183,60 @@
           <div
             class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-800 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
           >
-            <img
-              class="w-full h-60 object-cover rounded-lg mb-4"
-              src="https://images-cdn.ubuy.co.in/636e20e3d27062449818d974-mdrbb-portable-household-small-pumps.jpg"
-              alt=""
-            />
-            <div class="flex items-center space-x-3 mb-3">
+            <div class="slider-container relative" tabindex="0">
+              <div class="slider flex transition-transform duration-500">
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-cover rounded-lg"
+                    src="https://images-cdn.ubuy.co.in/636e20e3d27062449818d974-mdrbb-portable-household-small-pumps.jpg"
+                    alt="Compressor Motor Image 1"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="https://static1.industrybuying.com/products/pumps/booster-pumps/compressor-pump-sets/PUM.COM.24328138_1709710273045.webp"
+                    alt="Compressor Motor Image 2"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-cover rounded-lg"
+                    src="https://www.bestpumpsindia.com/works/Pro/MonoblocCompressorPumps1.jpg"
+                    alt="Compressor Motor Image 3"
+                  />
+                </div>
+              </div>
+              <button
+                class="nav-btn previous-button prev absolute top-1/2 left-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Previous Slide"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button
+                class="nav-btn next-button next absolute top-1/2 right-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Next Slide"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+              <div
+                class="dots absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2"
+              >
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="0"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="1"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="2"
+                ></span>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 mb-3 mt-4">
               <div
                 class="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg group-hover:bg-orange-600 group-hover:text-white transition-colors"
               >
@@ -852,6 +1282,256 @@
               </li>
             </ul>
             <button
+              onclick="location.href='#about'"
+              class="w-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-orange-600 hover:text-white hover:border-orange-600 px-4 py-2 rounded-lg font-medium transition-colors group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600"
+            >
+              Learn More
+              <i data-lucide="arrow-right" class="ml-2 h-4 w-4 inline"></i>
+            </button>
+          </div>
+
+          <!-- Service 7: Atlas Compressor Motor Repair -->
+          <div
+            class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-800 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
+          >
+            <div class="slider-container relative" tabindex="0">
+              <div class="slider flex transition-transform duration-500">
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-cover rounded-lg"
+                    src="https://cisp.cachefly.net/assets/articles/images/resized/0000416816_resized_unknown6.jpeg"
+                    alt="Atlas Compressor Image 1"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-cover rounded-lg"
+                    src="/images/atlas.jpg"
+                    alt="Atlas Compressor Image 2"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/atlas2.jpg"
+                    alt="Atlas Compressor Image 3"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/atlas3.jpg"
+                    alt="Atlas Compressor Image 3"
+                  />
+                </div>
+              </div>
+              <button
+                class="nav-btn previous-button prev absolute top-1/2 left-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Previous Slide"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button
+                class="nav-btn next-button next absolute top-1/2 right-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Next Slide"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+              <div
+                class="dots absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2"
+              >
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="0"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="1"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="2"
+                ></span>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 mb-3 mt-4">
+              <div
+                class="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg group-hover:bg-orange-600 group-hover:text-white transition-colors"
+              >
+                <i
+                  data-lucide="wrench"
+                  class="h-6 w-6 text-orange-600 group-hover:text-white"
+                ></i>
+              </div>
+              <h3 class="text-lg font-semibold">
+                Atlas Compressor Motor Repair
+              </h3>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Complete maintenance and repair solutions for Atlas Copco
+              compressor motors, ensuring high performance, efficiency, and
+              extended equipment life.
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-center space-x-2 text-sm">
+                <i
+                  data-lucide="check-circle"
+                  class="h-4 w-4 text-green-600 flex-shrink-0"
+                ></i>
+                <span>Motor rewinding and refurbishment</span>
+              </li>
+              <li class="flex items-center space-x-2 text-sm">
+                <i
+                  data-lucide="check-circle"
+                  class="h-4 w-4 text-green-600 flex-shrink-0"
+                ></i>
+                <span>Fault diagnosis and troubleshooting</span>
+              </li>
+              <li class="flex items-center space-x-2 text-sm">
+                <i
+                  data-lucide="check-circle"
+                  class="h-4 w-4 text-green-600 flex-shrink-0"
+                ></i>
+                <span>Rotor/stator repairs</span>
+              </li>
+              <li class="flex items-center space-x-2 text-sm">
+                <i
+                  data-lucide="check-circle"
+                  class="h-4 w-4 text-green-600 flex-shrink-0"
+                ></i>
+                <span>Vibration analysis and balancing</span>
+              </li>
+              <li class="flex items-center space-x-2 text-sm">
+                <i
+                  data-lucide="check-circle"
+                  class="h-4 w-4 text-green-600 flex-shrink-0"
+                ></i>
+                <span>Genuine parts replacement</span>
+              </li>
+            </ul>
+            <button
+              onclick="location.href='#about'"
+              class="w-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-orange-600 hover:text-white hover:border-orange-600 px-4 py-2 rounded-lg font-medium transition-colors group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600"
+            >
+              Learn More
+              <i data-lucide="arrow-right" class="ml-2 h-4 w-4 inline"></i>
+            </button>
+          </div>
+
+          <!-- Service 8: Electro Magnetic Brake Coil Repair -->
+          <div
+            class="group bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-800 rounded-lg p-6 hover:shadow-lg transition-all duration-300"
+          >
+            <div class="slider-container relative" tabindex="0">
+              <div class="slider flex transition-transform duration-500">
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-cover rounded-lg"
+                    src="https://www.engineerlive.com/sites/engineerlive/files/Altra403_Warner_Electric_forklift_brakes_pic2_ERD_brakes_PR4207_47020.jpg"
+                    alt="Electro Magnetic Brake Image 1"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/brake2.jpg"
+                    alt="Electro Magnetic Brake Image 2"
+                  />
+                </div>
+                <div class="slide min-w-full">
+                  <img
+                    class="w-full h-60 object-contain rounded-lg"
+                    src="/images/brake1.jpg"
+                    alt="Electro Magnetic Brake Image 3"
+                  />
+                </div>
+              </div>
+              <button
+                class="nav-btn previous-button prev absolute top-1/2 left-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Previous Slide"
+              >
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button
+                class="nav-btn next-button next absolute top-1/2 right-2 transform -translate-y-1/2 text-black text-2xl font-bold"
+                aria-label="Next Slide"
+              >
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
+              <div
+                class="dots absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2"
+              >
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="0"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="1"
+                ></span>
+                <span
+                  class="dot w-3 h-3 rounded-full bg-gray-300 cursor-pointer"
+                  data-index="2"
+                ></span>
+              </div>
+            </div>
+            <div class="flex items-center space-x-3 mb-3 mt-4">
+              <div
+                class="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg group-hover:bg-orange-600 group-hover:text-white transition-colors"
+              >
+                <i
+                  data-lucide="wrench"
+                  class="h-6 w-6 text-orange-600 group-hover:text-white"
+                ></i>
+              </div>
+              <h3 class="text-lg font-semibold">
+                Electro Magnetic Brake Coil Repair
+              </h3>
+            </div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              Professional repair and rewinding services for electro magnetic
+              brake coils used in various industrial applications, with
+              precision and reliability.
+            </p>
+            <ul class="space-y-2 mb-4">
+              <li class="flex items-center space-x-2 text-sm">
+                <i
+                  data-lucide="check-circle"
+                  class="h-4 w-4 text-green-600 flex-shrink-0"
+                ></i>
+                <span>Coil rewinding and replacement</span>
+              </li>
+              <li class="flex items-center space-x-2 text-sm">
+                <i
+                  data-lucide="check-circle"
+                  class="h-4 w-4 text-green-600 flex-shrink-0"
+                ></i>
+                <span>Insulation and continuity testing</span>
+              </li>
+              <li class="flex items-center space-x-2 text-sm">
+                <i
+                  data-lucide="check-circle"
+                  class="h-4 w-4 text-green-600 flex-shrink-0"
+                ></i>
+                <span>Armature and brake drum servicing</span>
+              </li>
+              <li class="flex items-center space-x-2 text-sm">
+                <i
+                  data-lucide="check-circle"
+                  class="h-4 w-4 text-green-600 flex-shrink-0"
+                ></i>
+                <span>Custom coil manufacturing</span>
+              </li>
+              <li class="flex items-center space-x-2 text-sm">
+                <i
+                  data-lucide="check-circle"
+                  class="h-4 w-4 text-green-600 flex-shrink-0"
+                ></i>
+                <span>Thermal protection and efficiency upgrades</span>
+              </li>
+            </ul>
+            <button
+              onclick="location.href='#about'"
               class="w-full border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-orange-600 hover:text-white hover:border-orange-600 px-4 py-2 rounded-lg font-medium transition-colors group-hover:bg-orange-600 group-hover:text-white group-hover:border-orange-600"
             >
               Learn More
@@ -859,6 +1539,83 @@
             </button>
           </div>
         </div>
+
+        <style>
+          .slider-container {
+            overflow: hidden;
+            position: relative;
+          }
+          .slider {
+            display: flex;
+          }
+          .slide {
+            flex: 0 0 100%;
+          }
+          .nav-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+          }
+          .nav-btn:focus {
+            outline: 2px solid blue;
+          }
+          .dots .dot.active {
+            background-color: #2563eb;
+          }
+        </style>
+
+        <script>
+          document
+            .querySelectorAll(".slider-container")
+            .forEach((container) => {
+              const slider = container.querySelector(".slider");
+              const slides = container.querySelectorAll(".slide");
+              const prevBtn = container.querySelector(".prev");
+              const nextBtn = container.querySelector(".next");
+              const dots = container.querySelectorAll(".dot");
+              let currentIndex = 0;
+
+              function updateSlider() {
+                slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+                dots.forEach((dot) => dot.classList.remove("active"));
+                dots[currentIndex].classList.add("active");
+              }
+
+              function goToSlide(index) {
+                if (index < 0) {
+                  currentIndex = slides.length - 1;
+                } else if (index >= slides.length) {
+                  currentIndex = 0;
+                } else {
+                  currentIndex = index;
+                }
+                updateSlider();
+              }
+
+              prevBtn.addEventListener("click", () =>
+                goToSlide(currentIndex - 1)
+              );
+              nextBtn.addEventListener("click", () =>
+                goToSlide(currentIndex + 1)
+              );
+
+              dots.forEach((dot) => {
+                dot.addEventListener("click", () => {
+                  goToSlide(parseInt(dot.dataset.index));
+                });
+              });
+
+              container.addEventListener("keydown", (e) => {
+                if (e.key === "ArrowLeft") {
+                  goToSlide(currentIndex - 1);
+                } else if (e.key === "ArrowRight") {
+                  goToSlide(currentIndex + 1);
+                }
+              });
+
+              updateSlider();
+            });
+        </script>
 
         <!-- All Types of Motors Section -->
         <div
@@ -888,7 +1645,7 @@
             </div>
             <div class="flex flex-col items-center space-x-2">
               <img
-                class="w-full h-60 object-cover rounded-lg mb-4"
+                class="w-full h-60 object-conver rounded-lg mb-4"
                 src="https://im-mining.com/site/wp-content/uploads/2020/11/slip-ring-motors-2000x1558.png"
                 alt=""
               />
@@ -897,7 +1654,7 @@
                 class="h-5 w-5 text-orange-600 flex-shrink-0"
               >
                 <img
-                  class="w-full h-60 object-cover rounded-lg mb-4"
+                  class="w-full h-60 object-contain rounded-lg mb-4"
                   src="https://im-mining.com/site/wp-content/uploads/2020/11/slip-ring-motors-2000x1558.png"
                   alt=""
                 />
@@ -957,11 +1714,12 @@
             </div>
           </div>
           <div class="text-center">
-            <button
+            <a
+              href="#contact"
               class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-colors"
             >
-              Get Service Quote
-            </button>
+              Get Service contact
+            </a>
           </div>
         </div>
       </div>
@@ -985,7 +1743,7 @@
                 Trusted by Industries & OEMs Since 2010
               </h2>
               <p class="text-lg text-gray-600 dark:text-gray-300">
-                With over 45 years of experience in the electrical industry,
+                With over 15 years of experience in the electrical industry,
                 Shivam Electrical Works has established itself as a leading
                 provider of motor repair and rewinding services. We serve
                 industries across Maharashtra and beyond, delivering reliable
@@ -1027,7 +1785,7 @@
               <div
                 class="text-center p-4 bg-orange-50 dark:bg-orange-950/20 rounded-lg"
               >
-                <div class="text-3xl font-bold text-orange-600">45+</div>
+                <div class="text-3xl font-bold text-orange-600">15+</div>
                 <div class="text-sm text-gray-600 dark:text-gray-400">
                   Years in Business
                 </div>
@@ -2001,6 +2759,53 @@
         });
         return false;
       }
+    </script>
+    <script>
+      const images = [
+        "https://t3.ftcdn.net/jpg/12/00/10/26/360_F_1200102621_MytrLAwEbZcXMPQXwx1uzhdZS9qFJ8Ud.jpg",
+        "https://images.unsplash.com/photo-1516321310762-4792b552fd45",
+        "https://images.unsplash.com/photo-1497436072909-60f69c88b4e1",
+      ];
+
+      let currentImageIndex = 0;
+      const slider = document.getElementById("backgroundSlider");
+      const prevArrow = document.getElementById("prevArrow");
+      const nextArrow = document.getElementById("nextArrow");
+
+      function updateBackgroundImage() {
+        slider.style.backgroundImage = `url(${images[currentImageIndex]})`;
+      }
+
+      function changeImageByTime() {
+        const hours = new Date().getHours();
+        if (hours >= 6 && hours < 12) {
+          currentImageIndex = 0; // Morning
+        } else if (hours >= 12 && hours < 18) {
+          currentImageIndex = 1; // Afternoon
+        } else {
+          currentImageIndex = 2; // Evening/Night
+        }
+        updateBackgroundImage();
+      }
+
+      // Initial setup
+      changeImageByTime();
+      updateBackgroundImage();
+
+      // Change image every hour
+      setInterval(changeImageByTime, 3600000);
+
+      // Manual navigation
+      prevArrow.addEventListener("click", () => {
+        currentImageIndex =
+          (currentImageIndex - 1 + images.length) % images.length;
+        updateBackgroundImage();
+      });
+
+      nextArrow.addEventListener("click", () => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        updateBackgroundImage();
+      });
     </script>
   </body>
 </html>
